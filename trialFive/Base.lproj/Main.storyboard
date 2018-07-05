@@ -18,25 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EfC-Ek-iUD">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Text" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfC-Ek-iUD">
                                 <rect key="frame" x="16" y="105" width="343" height="513"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="227" translatesAutoresizingMaskIntoConstraints="NO" id="916-B6-05i">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="916-B6-05i">
                                 <rect key="frame" x="16" y="66.5" width="343" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm9-aU-njC">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm9-aU-njC">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="jmL-Ib-jFm"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Previous"/>
                                         <connections>
                                             <action selector="previousButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="siu-be-wc1"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvw-20-tUH">
+                                        <rect key="frame" x="156" y="0.0" width="32" height="36"/>
+                                        <state key="normal" image="star.png">
+                                            <attributedString key="attributedTitle"/>
+                                        </state>
+                                        <state key="selected" image="star"/>
+                                        <state key="highlighted" image="star"/>
+                                        <connections>
+                                            <action selector="favoritesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QGN-sd-nuw"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WX1-7U-ezM">
-                                        <rect key="frame" x="302" y="0.0" width="41" height="36"/>
+                                        <rect key="frame" x="266" y="0.0" width="77" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Next"/>
                                         <connections>
@@ -45,6 +59,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Kvw-20-tUH" firstAttribute="centerX" secondItem="916-B6-05i" secondAttribute="centerX" id="6bs-Ef-Ra4"/>
                                     <constraint firstItem="Qm9-aU-njC" firstAttribute="leading" secondItem="916-B6-05i" secondAttribute="leading" id="Ofh-6L-Dy5"/>
                                     <constraint firstAttribute="trailing" secondItem="WX1-7U-ezM" secondAttribute="trailing" id="qNt-ZD-cPp"/>
                                 </constraints>
@@ -66,6 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="favoritesButton" destination="Kvw-20-tUH" id="lDn-Sy-mg3"/>
                         <outlet property="nextButton" destination="WX1-7U-ezM" id="HSZ-Mr-O9c"/>
                         <outlet property="previousButton" destination="Qm9-aU-njC" id="PtC-pa-jCp"/>
                         <outlet property="textView" destination="EfC-Ek-iUD" id="BhW-ro-ZzY"/>
@@ -73,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="-200"/>
+            <point key="canvasLocation" x="4530" y="553"/>
         </scene>
         <!--Enter Number View Controller-->
         <scene sceneID="fn1-dx-TOl">
@@ -90,7 +106,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8yp-F9-r6F">
-                                <rect key="frame" x="0.0" y="175.5" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="175.5" width="375" height="81"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-4G-iwi">
                                         <rect key="frame" x="16" y="0.0" width="343" height="30"/>
@@ -99,7 +115,8 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-hV-naf">
-                                        <rect key="frame" x="172.5" y="45" width="30" height="30"/>
+                                        <rect key="frame" x="172.5" y="45" width="30" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Go"/>
                                         <connections>
                                             <action selector="go:" destination="uKU-GX-5Td" eventType="touchUpInside" id="TCW-3Y-RoZ"/>
@@ -152,7 +169,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Kpe-jU-1Oc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritesCell" id="Kpe-jU-1Oc">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kpe-jU-1Oc" id="TwM-FR-9K1">
@@ -166,9 +183,10 @@
                             <outlet property="delegate" destination="0W3-vb-85i" id="vv2-Yw-Bvf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="NJG-IH-dYX">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="p6o-cP-YBH"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Favorites" id="NJG-IH-dYX"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="favoritesToTextSegue" id="66j-JE-KWk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sP-be-To8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,29 +201,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recents" id="47c-gQ-Ta0" customClass="RecentsTableViewCell" customModule="trialFive" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recents" id="47c-gQ-Ta0">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="47c-gQ-Ta0" id="RWW-8k-meU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jha-7s-Zbl">
-                                            <rect key="frame" x="16" y="10" width="48" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Jha-7s-Zbl" firstAttribute="leading" secondItem="RWW-8k-meU" secondAttribute="leading" constant="16" id="Nfs-vP-rYM"/>
-                                        <constraint firstItem="Jha-7s-Zbl" firstAttribute="centerY" secondItem="RWW-8k-meU" secondAttribute="centerY" id="OX8-0l-c8V"/>
-                                        <constraint firstAttribute="trailing" secondItem="Jha-7s-Zbl" secondAttribute="trailing" constant="311" id="ZYT-cs-6EO"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="recentsNumberLabel" destination="Jha-7s-Zbl" id="ClR-o2-Z3n"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -214,6 +216,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recents" id="xgg-8A-j07"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="recentsToTextSegue" id="TU2-O3-CJA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofj-Go-hb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,4 +297,11 @@
             <point key="canvasLocation" x="1953.5999999999999" y="-199.70014992503749"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star" width="32" height="32"/>
+        <image name="star.png" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="66j-JE-KWk"/>
+    </inferredMetricsTieBreakers>
 </document>
